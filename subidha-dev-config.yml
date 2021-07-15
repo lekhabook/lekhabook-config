@@ -5,6 +5,6 @@ JWT:
   Secret: "ByYM000OLlMQG6VVVp1OH7Xzyr7gHuw1qvUC5dcGt3SNM"
 
 AllowedHosts: "*"
-Urls: "http://localhost:5000"
+Urls: "http://localhost:5001"
 Persistence:
   Provider: "MySQL"
