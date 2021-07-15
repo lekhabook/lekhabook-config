@@ -1,1 +1,10 @@
 ConnectionString: "Server=mysqldb;Database=subidha;User=user;Password=System@123"
+JWT:
+  ValidAudience: "http://localhost:4200"
+  ValidIssuer: "http://localhost:5000"
+  Secret: "ByYM000OLlMQG6VVVp1OH7Xzyr7gHuw1qvUC5dcGt3SNM"
+
+AllowedHosts: "*"
+
+Persistence:
+  Provider: "MySQL"
