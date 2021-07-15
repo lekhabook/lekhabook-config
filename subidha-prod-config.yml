@@ -1,4 +1,4 @@
-ConnectionString: "Server=mysqldb;Database=subidha;User=user;Password=System@123"
+ConnectionString: "Server=mysqldb;Database=subidha;User=root;Password=System@123"
 JWT:
   ValidAudience: "http://localhost:4200"
   ValidIssuer: "http://localhost:5001"
