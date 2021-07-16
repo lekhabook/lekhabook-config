@@ -1,0 +1,10 @@
+ConnectionString: "Server=mysqldb;Database=jms;User=user;Password=System@123"
+JWT:
+  ValidAudience: "http://localhost:4301"
+  ValidIssuer: "http://localhost:5003"
+  Secret: "ByYM000OLlMQG6VVVp1OH7Xzyr7gHuw1qvUC5dcGt3SNM"
+
+AllowedHosts: "*"
+Urls: "http://0.0.0.0:5003"
+Persistence:
+  Provider: "MySQL"
