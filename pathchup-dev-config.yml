@@ -1,0 +1,10 @@
+ConnectionString: "Server=mysql;Database=patchup;User=root;Password=password"
+JWT:
+  ValidAudience: "http://localhost:4200"
+  ValidIssuer: "http://localhost:5001"
+  Secret: "ByYM000OLlMQG6VVVp1OH7Xzyr7gHuw1qvUC5dcGt3SNM"
+
+AllowedHosts: "*"
+Urls: "http://0.0.0.0:5001"
+Persistence:
+  Provider: "MySQL"
