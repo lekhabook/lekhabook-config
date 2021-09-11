@@ -1,4 +1,4 @@
-ConnectionString: "Server=mysqldb;Database=patchup;User=root;Password=password"
+ConnectionString: "Server=mysqldb;Database=patchup;User=root;Password=System@123"
 JWT:
   ValidAudience: "http://localhost:4200"
   ValidIssuer: "http://localhost:5001"
