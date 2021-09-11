@@ -6,6 +6,7 @@ Contains configuration files for lekhabook
 | ------------|:--------|:--------:|:-------------:|
 |subidha      | subidha.lekhabook.com |         5001 |        4300 |
 |jms          | jms.lekhabook.com     |        5004  |      4301 |   
+|patchup      | patchup.lekhabook.com |        5006  |      4302 |
 
 
 
