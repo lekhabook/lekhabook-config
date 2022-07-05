@@ -25,9 +25,10 @@ spring:
       #host: consule-service
       host: localhost
       port: 8500
+      config:
+        enabled: true
       # discovery:
       #   instanceId: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
-
     gateway:
       x-forwarded:
         host-enabled: true
