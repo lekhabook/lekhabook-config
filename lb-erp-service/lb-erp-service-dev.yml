@@ -1,1 +1,61 @@
-development
+server:
+  port: 9000
+
+logging:
+  level:
+    reactor:
+      netty: INFO
+    org:
+      springframework:
+        cloud:
+          gateway: INFO
+
+lekhabook:
+    jwtExpirationMs: 36000
+    jwtSecret: thisismysecret
+    servicesAcountUrl: http://lb-identity-service    
+
+spring:
+  main:
+    web-application-type: reactive
+  cloud:
+      ## address for consule
+      consul:
+        #uncoment on production
+        #host: consule-service
+        host: localhost
+        port: 8500
+          discovery:
+            instanceId: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
+
+      gateway:
+        x-forwarded:
+          host-enabled: true
+        globalcors:
+          cors-configurations:
+            '[/**]':
+              allowedOrigins: "http://erp.lekhabook.com"
+              allowedMethods:
+              - GET
+              - POST
+              - POST
+              - DELETE
+              - PUT
+        routes:
+        # Route Mapping
+        - id: lb-identity
+          uri: lb://lb-identity-service
+          predicates:
+            - Path=/api/auth/**, /api/token/**, /api/users/**
+          filters:
+            - AuthClientFilter
+            - PreserveHostHeader
+            #- AuthorizationFilter
+        - id: lekhabook-services
+          uri: lb://lb-erp-service
+          predicates:
+            - Path=/api/**
+          filters:
+            - AuthClientFilter
+            - AuthFilter
+            - PreserveHostHeader
