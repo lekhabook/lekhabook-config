@@ -11,14 +11,9 @@ logging:
           gateway: INFO
 
 lekhabook:
-  gateway:
     jwtExpirationMs: 36000
     jwtSecret: thisismysecret
-
-  services:
-    account:
-      #url: lb://lb-identity-service
-      url: http://lb-identity-service
+    servicesAcountUrl: http://lb-identity-service    
 
 spring:
   main:
