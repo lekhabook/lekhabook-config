@@ -22,8 +22,7 @@ spring:
     ## address for consule
     consul:
       #uncoment on production
-      #host: consule-service
-      host: localhost
+      host: consule-service      
       port: 8500
       discovery:
         instanceId: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
