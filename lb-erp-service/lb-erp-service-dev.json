@@ -10,7 +10,7 @@
   "Persistence": {
     "Provider": "Postgres"
   },
-  "TenantConnectionString": "Host=postgres_container;Port=5432;Database=lekhabook_organization;Username=postgres;Password=System@123",
+  "TenantConnectionString": "Host=localhost;Port=5432;Database=lekhabook_organization;Username=postgres;Password=System@123",
   "Finbuckle:MultiTenant:Stores:ConfigurationStore": {
     "Defaults": {
       "ConnectionString": "Host=localhost;Port=5432;Database=lb_tenants;Username=postgres;Password=System@123"
