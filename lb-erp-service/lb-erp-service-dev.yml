@@ -1,0 +1,33 @@
+Logging:
+  LogLevel:
+    Default: Debug
+    Microsoft: Warning
+    Microsoft.Hosting.Lifetime: Debug
+    Steeltoe: Debug
+Persistence:
+  Provider: Postgres
+TenantConnectionString: >-
+  Host=localhost;Port=5432;Database=lekhabook_organization;Username=postgres;Password=System@123
+Finbuckle:MultiTenant:Stores:ConfigurationStore:
+  Defaults:
+    ConnectionString: >-
+      Host=localhost;Port=5432;Database=lb_tenants;Username=postgres;Password=System@123
+  Tenants:
+    - Id: '1'
+      Identifier: subidha
+      Name: Subidha Pvt. Ltd.
+      ConnectionString: Server=localhost;Database=lb_master;User=root;Password=System@123
+    - Id: '2'
+      Identifier: jms
+      Name: Jms Pvt. Ltd.
+      ConnectionString: Server=localhost;Database=jms;User=root;Password=HamroNepal@321123
+Spring:
+  application:
+    name: lb-erp-service
+Consul:
+  Host: consule-service
+  Port: 8500
+  Discovery:
+    Enabled: true
+    register: true
+    Port: 5000
