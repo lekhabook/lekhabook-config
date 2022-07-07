@@ -25,7 +25,8 @@ Spring:
   application:
     name: lb-erp-service
 Consul:
-  Host: consule-service
+  #Host: consule-service
+  Host: localhost
   Port: 8500
   Discovery:
     Enabled: true
