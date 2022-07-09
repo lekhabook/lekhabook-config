@@ -7,9 +7,9 @@ logging:
     reactor.netty.http.client: DEBUG
 
 lekhabook:
-    jwtExpirationMs: 36000
-    jwtSecret: thisismysecret
-    servicesAcountUrl: http://lb-identity-service    
+  jwtExpirationMs: 36000
+  jwtSecret: thisismysecret
+  servicesAcountUrl: http://lb-identity-service    
 
 spring:
   main:
