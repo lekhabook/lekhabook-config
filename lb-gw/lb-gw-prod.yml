@@ -3,17 +3,19 @@ server:
 
 logging:
   level:
-    reactor:
-      netty: INFO
     org:
       springframework:
         cloud:
-          gateway: INFO
+          gateway: DEBUG
+    reactor:
+      netty:
+        http:
+          client: DEBUG
 
 lekhabook:
-    jwtExpirationMs: 36000
-    jwtSecret: thisismysecret
-    servicesAcountUrl: http://lb-identity-service    
+  jwtExpirationMs: 36000
+  jwtSecret: thisismysecret
+  servicesAcountUrl: http://lb-identity-service    
 
 spring:
   main:
@@ -22,9 +24,11 @@ spring:
     ## address for consule
     consul:
       #uncoment on production
-      host: consule-service      
+      host: consule-service
+      #host: localhost
       port: 8500
       discovery:
+        Prefer-ip-address: true
         instanceId: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
 
       gateway:
@@ -44,8 +48,9 @@ spring:
         # Route Mapping
         - id: lb-identity
           uri: lb://lb-identity-service
+          #uri: http://172.27.0.6:10000
           predicates:
-            - Path=/api/auth/**, /api/token/**, /api/users/**
+            - Path=/api/auth/**,/api/token/**,/api/users/**
           filters:
             - AuthClientFilter
             - PreserveHostHeader
