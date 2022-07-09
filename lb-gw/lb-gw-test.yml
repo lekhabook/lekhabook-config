@@ -3,12 +3,8 @@ server:
 
 logging:
   level:
-    reactor:
-      netty: INFO
-    org:
-      springframework:
-        cloud:
-          gateway: DEBUG
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
 
 lekhabook:
     jwtExpirationMs: 36000
