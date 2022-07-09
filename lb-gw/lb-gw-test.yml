@@ -26,6 +26,7 @@ spring:
       #host: localhost
       port: 8500
       discovery:
+        Prefer-ip-address: true
         instanceId: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
 
       gateway:
