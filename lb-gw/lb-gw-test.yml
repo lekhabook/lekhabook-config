@@ -8,7 +8,7 @@ logging:
     org:
       springframework:
         cloud:
-          gateway: INFO
+          gateway: DEBUG
 
 lekhabook:
     jwtExpirationMs: 36000
