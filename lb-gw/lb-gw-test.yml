@@ -41,7 +41,8 @@ spring:
         routes:
         # Route Mapping
         - id: lb-identity
-          uri: lb://lb-identity-service
+          #uri: lb://lb-identity-service
+          uri: http://172.30.0.6:10000
           predicates:
             - Path=/api/auth/**, /api/token/**, /api/users/**
           filters:
