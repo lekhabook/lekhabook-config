@@ -23,9 +23,8 @@ spring:
   cloud:
     ## address for consule
     consul:
-      #uncoment on production
-      host: consule-service
-      #host: localhost
+      #uncoment on production      
+      host: localhost
       port: 8500
       discovery:
         Prefer-ip-address: true
