@@ -18,6 +18,8 @@ lekhabook:
   servicesAcountUrl: http://lb-identity-service    
 
 spring:
+  application:
+    name: lb-gw
   main:
     web-application-type: reactive
   cloud:
