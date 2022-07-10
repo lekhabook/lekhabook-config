@@ -32,35 +32,35 @@ spring:
         Prefer-ip-address: true
         instanceId: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
 
-      gateway:
-        x-forwarded:
-          host-enabled: true
-        globalcors:
-          cors-configurations:
-            '[/**]':
-              allowedOrigins: "http://erp.lekhabook.com"
-              allowedMethods:
-              - GET
-              - POST
-              - POST
-              - DELETE
-              - PUT
-        routes:
-        # Route Mapping
-        - id: lb-identity
-          #uri: lb://lb-identity-service
-          uri: http://localhost:10000
-          predicates:
-            - Path=/api/auth/**,/api/token/**,/api/users/**
-          filters:
-            - AuthClientFilter
-            - PreserveHostHeader
-            #- AuthorizationFilter
-        - id: lekhabook-services
-          uri: lb://lb-erp-service
-          predicates:
-            - Path=/api/**
-          filters:
-            - AuthClientFilter
-            - AuthFilter
-            - PreserveHostHeader
+  gateway:
+    x-forwarded:
+      host-enabled: true
+    globalcors:
+      cors-configurations:
+        '[/**]':
+          allowedOrigins: "http://erp.lekhabook.com"
+          allowedMethods:
+          - GET
+          - POST
+          - POST
+          - DELETE
+          - PUT
+    routes:
+    # Route Mapping
+    - id: lb-identity
+      #uri: lb://lb-identity-service
+      uri: http://localhost:10000
+      predicates:
+        - Path=/api/auth/**,/api/token/**,/api/users/**
+      filters:
+        - AuthClientFilter
+        - PreserveHostHeader
+        #- AuthorizationFilter
+    - id: lekhabook-services
+      uri: lb://lb-erp-service
+      predicates:
+        - Path=/api/**
+      filters:
+        - AuthClientFilter
+        - AuthFilter
+        - PreserveHostHeader
