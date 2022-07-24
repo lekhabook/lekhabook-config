@@ -39,7 +39,7 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: "http://erp.lekhabook.com"
+            allowedOrigins: "https://erp.lekhabook.com"
             allowedMethods:
             - GET
             - POST
