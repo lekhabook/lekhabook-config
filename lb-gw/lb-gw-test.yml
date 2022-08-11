@@ -65,3 +65,11 @@ spring:
           - AuthClientFilter
           - AuthFilter
           - PreserveHostHeader
+      - id: apps-services
+        uri: http://localhost:1100
+        predicates:
+          - Path=/api/**
+        filters:
+          - AuthClientFilter
+          - AuthFilter
+          - PreserveHostHeader
