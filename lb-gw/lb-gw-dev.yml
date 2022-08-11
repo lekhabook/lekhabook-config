@@ -41,6 +41,7 @@ spring:
             allowedOrigins: 
             - "http://localhost:1100"
             - "https://erp.lekhabook.com"
+            allowedHeaders: "*"
             allowedMethods:
             - GET
             - POST
