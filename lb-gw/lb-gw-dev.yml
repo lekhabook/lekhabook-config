@@ -38,7 +38,9 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: "http://localhost:1100"
+            allowedOrigins: 
+            - "http://localhost:1100"
+            - "https://erp.lekhabook.com"
             allowedMethods:
             - GET
             - POST
@@ -63,12 +65,5 @@ spring:
         filters:
           - AuthClientFilter
           - AuthFilter
-          - PreserveHostHeader
-      - id: apps-services
-        uri: http://localhost:1100
-        predicates:
-          - Path=/api/**
-        filters:
-          - AuthClientFilter
           - PreserveHostHeader
       
