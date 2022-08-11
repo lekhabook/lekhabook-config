@@ -70,6 +70,5 @@ spring:
           - Path=/api/**
         filters:
           - AuthClientFilter
-          - AuthFilter
           - PreserveHostHeader
       
