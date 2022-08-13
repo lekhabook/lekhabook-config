@@ -41,6 +41,7 @@ spring:
               - "http://localhost:1100"
               - "https://erp.lekhabook.com"
               - "https://apps-dev.lekhabook.com"
+              - "https://contact-dev.lekhabook.com"
               - "http://localhost:44447"
               allowedMethods:
               - GET
