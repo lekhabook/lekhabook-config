@@ -22,16 +22,16 @@ spring:
     name: lb-gw
   main:
     web-application-type: reactive
-  cloud:
-    ## address for consule
-    consul:
-      #uncoment on production
-      host: consule-service
-      #host: localhost
-      port: 8500
-      discovery:
-        Prefer-ip-address: true
-        instanceId: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
+#   cloud:
+#     ## address for consule
+#     consul:
+#       #uncoment on production
+#       host: consule-service
+#       #host: localhost
+#       port: 8500
+#       discovery:
+#         Prefer-ip-address: true
+#         instanceId: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
 
     gateway:
       x-forwarded:
