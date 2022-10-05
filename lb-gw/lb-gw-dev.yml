@@ -62,7 +62,16 @@ spring:
         filters:
           - AuthClientFilter
           - PreserveHostHeader
+
+      - id: lb-customer-service
+        uri: ${LB_CONTACT_SERVICE}        
+        predicates:
+          - Path=/api/customers
+        filters:
+          - AuthClientFilter
+          - PreserveHostHeader
           #- AuthorizationFilter
+
       - id: lekhabook-services
         uri: http://localhost:8000
         predicates:
