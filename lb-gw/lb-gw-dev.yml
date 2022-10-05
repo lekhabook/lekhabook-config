@@ -13,9 +13,9 @@ logging:
           client: DEBUG
 
 lekhabook:
-  jwtExpirationMs: 36000
-  jwtSecret: thisismysecret
-  servicesAcountUrl: http://lb-identity-service    
+  jwtExpirationMs: ${JWT_EXPIRATION_MS}
+  jwtSecret: ${JWT_SECRET}
+  servicesAcountUrl: ${SERVICE_ACCOUNT_URL}   
 
 spring:
   application:
