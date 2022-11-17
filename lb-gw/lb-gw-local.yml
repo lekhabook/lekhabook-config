@@ -1,0 +1,85 @@
+server:
+  port: 9000
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: DEBUG
+    reactor:
+      netty:
+        http:
+          client: DEBUG
+
+lekhabook:
+  jwtExpirationMs: ${JWT_EXPIRATION_MS}
+  jwtSecret: ${JWT_SECRET}
+  servicesAcountUrl: ${SERVICE_IDENTITY}   
+
+spring:
+  application:
+    name: lb-gw
+  main:
+    web-application-type: reactive
+  cloud:
+#     ## address for consule
+#     consul:
+#       #uncoment on production      
+#       host: localhost
+#       port: 8500
+#       discovery:
+#         Prefer-ip-address: true
+#         instanceId: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
+
+    gateway:
+      x-forwarded:
+        host-enabled: true
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: 
+            - "http://localhost:1100"
+            - "https://erp.lekhabook.com"
+            - "https://apps-dev.lekhabook.com"
+            - "https://contact-dev.lekhabook.com"
+            - "https://inventory-dev.lekhabook.com"
+            - "http://localhost:44447"
+            - "https://website-dev.lekhabook.com"
+            - "https://lekhabook.com"
+            allowedHeaders: "*"
+            allowedMethods:
+            - GET
+            - POST
+            - POST
+            - DELETE
+            - PUT
+            - OPTIONS
+      routes:
+      # Route Mapping
+      - id: lb-identity
+        uri: ${SERVICE_IDENTITY}        
+        predicates:
+          - Path=/api/auth/**,/api/token/**,/api/users/**
+        filters:
+          - AuthClientFilter
+          - PreserveHostHeader
+
+      - id: lb-customer-service
+        uri: ${LB_CONTACT_SERVICE}        
+        predicates:
+          - Path=/api/customers
+        filters:
+          - AuthClientFilter
+          - PreserveHostHeader
+          #- AuthorizationFilter
+
+      - id: lekhabook-services
+        uri: http://localhost:8000
+        predicates:
+          - Path=/api/**
+        filters:
+          - AuthClientFilter
+          - AuthFilter
+          - PreserveHostHeader
+      
