@@ -46,6 +46,7 @@ spring:
             - "https://inventory-dev.lekhabook.com"
             - "http://localhost:44447"
             - "https://website-dev.lekhabook.com"
+            - "https://lekhabook.com"
             allowedHeaders: "*"
             allowedMethods:
             - GET
